@@ -1,3 +1,19 @@
+/* =====================================================
+     styles.css — The Pulse Collective
+
+     Purpose:
+     - Central stylesheet for the site: layout, components,
+         utilities, responsive rules, and theme variables.
+     - Each following section is annotated with a short
+         description and usage notes to make maintenance easier.
+
+     Notes:
+     - Color variables live under :root and toggle under
+         the `.dark-mode` class on the <body>.
+     - Keep broadly-applicable utility classes near the top
+         (eg. `.sr-only`) so they are easy to find.
+     ===================================================== */
+
 /* Icon-style social buttons used in contact/social sections */
 .social-buttons {
     display: flex;
@@ -45,6 +61,11 @@
     white-space: nowrap !important;
     border: 0 !important;
 }
+/*
+    Accessibility utility:
+    - `.sr-only` hides content visually but keeps it available
+        to screen readers (useful for icon buttons and labels).
+*/
 /* ===================================
    RESET & BASE STYLES
    =================================== */
@@ -870,6 +891,15 @@ ul {
     display: block;
 }
 
+/*
+    Per-artist artwork container overrides
+    - These ID selectors provide artist-specific sizing or
+        positioning tweaks when a page needs a different crop
+        or max-height for its hero artwork.
+    - Keep these small and focused to avoid global layout
+        regressions.
+*/
+
 .featured-artwork-box#alvaro {
   max-height: 480px;     
   border-radius: 10px;
@@ -900,6 +930,7 @@ ul {
 .featured-artwork-box#julia img{
   object-position: 20% 50%;
 }
+/* End of per-artist artwork overrides */
 
 .featured-artist-content {
     display: flex;
