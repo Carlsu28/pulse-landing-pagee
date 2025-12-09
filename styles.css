@@ -1,0 +1,2562 @@
+/* Icon-style social buttons used in contact/social sections */
+.social-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background-color: var(--card);
+    color: var(--foreground);
+    transition: background-color 0.2s ease, transform 0.15s ease, color 0.2s ease;
+    text-decoration: none;
+}
+
+.social-btn svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+.social-btn:hover {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    transform: translateY(-3px);
+    border-color: transparent;
+}
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+/* ===================================
+   RESET & BASE STYLES
+   =================================== */
+/* Used on: ALL PAGES (index.html, exhibitions.html, artists.html, collection.html, contact.html, about.html, artwork-detail.html, ronald.html, exhibition-central.html) */
+
+/* Import RethinkSans Font */
+@font-face {
+    font-family: 'RethinkSans';
+    src: url('https://res.cloudinary.com/ddjxbzvcu/raw/upload/v1764764004/RethinkSans-VariableFont_wght_hj16qy.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+:root {
+    /* Light Mode Colors */
+    --primary: #b91c1c;
+    --primary-foreground: #faf7f5;
+    --secondary: #92400e;
+    --secondary-foreground: #fef3c7;
+    --accent: #b45309;
+    --accent-foreground: #fef3c7;
+    --background: #ffffff;
+    --foreground: #1c1917;
+    --card: #ffffff;
+    --card-foreground: #1c1917;
+    --border: #e7e5e4;
+    --input: #f5f5f4;
+    --ring: #b91c1c;
+    --muted: #f5f5f4;
+    --muted-foreground: #78716c;
+    --sidebar-background: #1c1917;
+    --sidebar-foreground: #f5f5f4;
+    --sidebar-primary: #b91c1c;
+    --sidebar-accent: #b45309;
+    
+    /* Transitions */
+    --transition-speed: 0.3s;
+}
+
+body.dark-mode {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+    --card: #1c1917;
+    --card-foreground: #fafafa;
+    --border: #292524;
+    --input: #292524;
+    --muted: #292524;
+    --muted-foreground: #a8a29e;
+    --page-header-bg: #0f0f0f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'RethinkSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--foreground);
+    line-height: 1.6;
+    background-color: var(--background);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigation Bar - Used on: ALL PAGES */
+.navbar {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--background);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-speed) ease;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 20px rgba(185, 28, 28, 0.1);
+}
+
+.nav-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    flex-shrink: 0;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo:hover {
+    color: var(--primary);
+    transform: scale(1.05);
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--primary);
+    transition: all var(--transition-speed) ease;
+}
+
+.logo:hover .logo-icon svg {
+    fill: var(--accent);
+    transform: rotate(10deg);
+}
+
+.logo-text {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo img {
+    display: none;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-link {
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width var(--transition-speed) ease;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-link:hover::after {
+    width: 80%;
+}
+
+.nav-link.active {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+}
+
+/* Dark Mode Toggle - Used on: ALL PAGES */
+.dark-mode-toggle {
+    background: none;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed) ease;
+    flex-shrink: 0;
+}
+
+.dark-mode-toggle:hover {
+    background-color: var(--primary);
+    transform: rotate(20deg);
+}
+
+.dark-mode-toggle:hover svg {
+    stroke: var(--primary-foreground);
+}
+
+.dark-mode-toggle svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--primary);
+    fill: none;
+    transition: stroke 0.3s ease;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--foreground);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Button Styles - Used on: ALL PAGES */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    box-shadow: 0 4px 15px rgba(185, 28, 28, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #991b1b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(185, 28, 28, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+}
+
+.btn-secondary:hover {
+    background-color: #78350f;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid var(--primary);
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    transform: translateY(-2px);
+}
+
+.btn-outline-sm {
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    border: 1px solid var(--border);
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+.btn-outline-sm:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+
+.mobile-only {
+    display: none !important;
+}
+
+.desktop-only {
+    display: flex;
+}
+
+/* ===================================
+   MODAL
+   =================================== */
+/* Used on: contact.html (Confirmation modal for form submission) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    margin-bottom: 1rem;
+}
+
+.modal-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+}
+
+.modal-body p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+    margin-bottom: 1.5rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.modal-actions .btn {
+    min-width: 100px;
+}
+
+/* ===================================
+   TOAST NOTIFICATION
+   =================================== */
+/* Used on: contact.html (Success/error feedback messages) */
+.toast-container {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.toast {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    min-width: 300px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: slideInRight 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.toast.hiding {
+    animation: slideOutRight 0.3s ease forwards;
+}
+
+@keyframes slideOutRight {
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+.toast-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.toast-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.toast.success {
+    border-left: 4px solid #22c55e;
+}
+
+.toast.success .toast-icon {
+    color: #22c55e;
+}
+
+.toast.error {
+    border-left: 4px solid #ef4444;
+}
+
+.toast.error .toast-icon {
+    color: #ef4444;
+}
+
+.toast-content {
+    flex: 1;
+}
+
+.toast-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 0.25rem;
+}
+
+.toast-message {
+    font-size: 14px;
+    color: var(--muted-foreground);
+    line-height: 1.4;
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: var(--muted-foreground);
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-speed) ease;
+}
+
+.toast-close:hover {
+    color: var(--foreground);
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+/* Used on: index.html (Large welcome banner with call-to-action buttons) */
+.hero {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 1rem;
+    background: linear-gradient(135deg, rgba(185, 28, 28, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%),
+                url('images/hero-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(185, 28, 28, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -250px;
+    right: -250px;
+    animation: float 20s ease-in-out infinite;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(180, 83, 9, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    bottom: -200px;
+    left: -200px;
+    animation: float 15s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(30px, -30px) rotate(120deg); }
+    66% { transform: translate(-20px, 20px) rotate(240deg); }
+}
+
+.hero-content {
+    max-width: 960px;
+    width: 100%;
+    z-index: 10;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h1 {
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Color for "Pulse Collective" in hero */
+.hero h1 .highlight {
+    color: var(--primary);
+    text-shadow: 0 0 30px rgba(185, 28, 28, 0.5);
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 30px rgba(185, 28, 28, 0.5); }
+    50% { text-shadow: 0 0 50px rgba(185, 28, 28, 0.8); }
+}
+
+.hero p {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--foreground);
+    opacity: 0.7;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-out 0.3s backwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.7; }
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeIn 1s ease-out 0.6s backwards;
+}
+
+.hero-buttons .btn-primary {
+    min-width: 233px;
+    height: 56px;
+}
+
+.hero-buttons .btn-outline {
+    min-width: 186px;
+    height: 56px;
+}
+
+
+/* Page Header - Used on: exhibitions.html, collection.html, contact.html, about.html */
+.page-header {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+
+.page-header .subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--muted-foreground);
+    max-width: 672px;
+    margin: 0 auto;
+}
+
+
+/* Badge Styles - Used on: exhibitions.html, exhibition-central.html (Current Exhibition badge) */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid var(--primary);
+    background-color: transparent;
+    color: var(--primary);
+    transition: all var(--transition-speed) ease;
+}
+
+.badge:hover {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    transform: scale(1.05);
+}
+
+.badge-current {
+    background-color: var(--primary);
+    border: none;
+    color: var(--primary-foreground);
+}
+
+/* Featured Section - Used on: artists.html, ronald.html (Featured artist profile) */
+.featured-section {
+    padding: 4rem 0;
+    background: linear-gradient(to bottom, var(--background) 0%, rgba(185, 28, 28, 0.03) 100%);
+}
+
+.featured-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.11;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--foreground);
+}
+
+.featured-artist-header {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.featured-artist-profile {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background-color: transparent;
+}
+
+.featured-artist-image {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+    border: 2px solid rgba(185, 28, 28, 0.5);
+    box-shadow: 0 3px 15px rgba(185, 28, 28, 0.15);
+}
+
+.featured-artist-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-artist-info h3 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0;
+    color: var(--foreground);
+}
+
+.featured-artist-info .artist-birth {
+    font-size: 14px;
+    color: var(--muted-foreground);
+    font-weight: 500;
+    margin: 0.25rem 0 0.75rem 0;
+    display: block;
+}
+
+.featured-artist-info .badge {
+    margin: 0;
+}
+
+.featured-artist-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.featured-artwork-box {
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 0;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-artwork-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.featured-artwork-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+.featured-artwork-box#alvaro {
+  max-height: 480px;     
+  border-radius: 10px;
+  overflow: hidden;      
+}
+
+.featured-artwork-box#andres{
+  max-height: 400px;     
+  border-radius: 10px;
+  overflow: hidden; 
+  display: block;
+}
+
+.featured-artwork-box#ronald{
+  max-height: 400px;     
+  border-radius: 10px;
+  overflow: hidden; 
+  display: block;
+}
+
+.featured-artwork-box#julia{
+  max-height: 400px;     
+  border-radius: 10px;
+  overflow: hidden; 
+  display: block;
+}
+
+.featured-artwork-box#julia img{
+  object-position: 20% 50%;
+}
+
+.featured-artist-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-artist-content h4 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+}
+
+.featured-artist-content .artist-description {
+    font-size: 16px;
+    line-height: 1.625;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.featured-artist-content .artist-quote {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted-foreground);
+    font-style: italic;
+    margin-bottom: 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--primary);
+}
+
+.btn-centered {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 2rem auto;
+}
+
+.artist-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.artist-info-card {
+    background-color: var(--card);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artist-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.artist-info-card h4 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--foreground);
+}
+
+.artist-info-card .artist-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.artist-info-card .artist-list li {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted-foreground);
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.artist-info-card .artist-list li:last-child {
+    margin-bottom: 0;
+}
+
+.artist-info-card .artist-list li:before {
+    content: "•";
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 18px;
+    position: absolute;
+    left: 0;
+}
+
+.artist-info-card .artist-description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted-foreground);
+    margin-bottom: 0.75rem;
+}
+
+.artist-info-card .artist-description:last-child {
+    margin-bottom: 0;
+}
+
+.featured-artist-content .artist-quote {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted-foreground);
+    font-style: italic;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--primary);
+}
+
+
+/* Recent Artworks & Collection Gallery - Used on: index.html (featured artworks), collection.html (main gallery), ronald.html (recent artworks) */
+.recent-artworks,
+.collection-gallery {
+    padding: 4rem 0;
+}
+
+.recent-artworks h2,
+.collection-gallery h2 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.11;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--foreground);
+    position: relative;
+}
+
+.recent-artworks h2::after,
+.collection-gallery h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+.artwork-grid,
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.artwork-card,
+.gallery-item {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all var(--transition-speed) ease;
+    background-color: var(--card);
+    position: relative;
+}
+
+.artwork-card::before,
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(185, 28, 28, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+    z-index: 1;
+}
+
+.artwork-card:hover,
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(185, 28, 28, 0.2);
+    border-color: var(--primary);
+}
+
+.artwork-card:hover::before,
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+.artwork-image,
+.gallery-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.artwork-image img,
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.artwork-info,
+.gallery-info {
+    padding: 1.5rem;
+}
+
+.artwork-info h3,
+.gallery-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.artist-name {
+    font-size: 14px;
+    color: var(--muted-foreground);
+}
+
+.view-collection-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.btn-view-collection {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: #FFFFFF;
+    color: #000000;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+    cursor: pointer;
+}
+
+.btn-view-collection:hover {
+    background: #F5F5F5;
+    border-color: rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .btn-view-collection {
+    background: var(--card);
+    color: var(--foreground);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .btn-view-collection:hover {
+    background: var(--muted);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Collection Header - Used on: collection.html (page header with title/description) */
+.collection-header {
+    padding: 4rem 0 2rem;
+    text-align: center;
+}
+
+.collection-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+}
+
+.collection-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--muted-foreground);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Repository Stats - Used on: collection.html (collection statistics cards) */
+.repository-stats {
+    padding: 2rem 0 4rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all var(--transition-speed) ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(185, 28, 28, 0.15);
+    border-color: var(--primary);
+}
+
+.stat-card h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    font-size: 14px;
+    color: var(--muted-foreground);
+}
+
+/* Collection Gallery Artwork Cards - Used on: collection.html (individual artwork cards) */
+.artwork-content {
+    padding: 1rem;
+    position: relative;
+}
+
+.artwork-title-author {
+    margin-bottom: 0.5rem;
+}
+
+.artwork-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--foreground);
+}
+
+.artwork-author {
+    font-size: 14px;
+    color: var(--muted-foreground);
+    margin-bottom: 0.5rem;
+}
+
+.artwork-year {
+    font-size: 14px;
+    color: var(--muted-foreground);
+    margin-bottom: 0.25rem;
+}
+
+.artwork-type {
+    font-size: 13px;
+    color: var(--muted-foreground);
+    margin-bottom: 1rem;
+}
+
+.view-button {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    z-index: 100;
+    pointer-events: auto !important;
+}
+
+.view-button:hover {
+    background-color: #991b1b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(185, 28, 28, 0.3);
+}
+
+.artwork-card:hover .view-button {
+    background-color: #7f1d1d;
+}
+
+/* Pagination - Used on: collection.html (previous/next page buttons) */
+.pagination-section {
+    padding: 2rem 0 4rem;
+}
+
+.pagination-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--card);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Artwork Modal & Detail Page - Used on: artwork-detail.html, collection.html (artwork details) */
+.artwork-modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+.artwork-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.artwork-modal-content {
+    background-color: var(--card);
+    border-radius: 16px;
+    max-width: 1200px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.artwork-modal-header {
+    padding: 2rem 2rem 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.artwork-viewer-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--foreground);
+    margin: 0;
+}
+
+.artwork-modal-body {
+    padding: 2rem;
+}
+
+.artwork-detail-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.artwork-detail-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--muted);
+}
+
+.artwork-detail-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.artwork-detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.artwork-detail-year {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.artwork-detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.artwork-detail-title-author {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.artwork-detail-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--foreground);
+}
+
+.artwork-detail-author {
+    font-size: 18px;
+    color: var(--muted-foreground);
+}
+
+.artwork-detail-description {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.artwork-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.detail-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-value {
+    font-size: 16px;
+    color: var(--foreground);
+    line-height: 1.5;
+}
+
+.go-back-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem auto;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--muted);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+
+.go-back-button:hover {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
+    transform: translateX(-4px);
+}
+
+.go-back-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* About Page Sections - Used on: index.html (about-preview), about.html (our-story, mission-vision) */
+.about-preview,
+.our-story,
+.mission-vision {
+    padding: 4rem 0;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.about-content p {
+    font-size: 16px;
+    line-height: 1.625;
+    color: var(--muted-foreground);
+    margin-bottom: 2rem;
+}
+
+.two-col-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.col-content h2,
+.col-content h3 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.col-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.col-content p {
+    font-size: 16px;
+    line-height: 1.625;
+    color: var(--muted-foreground);
+    margin-bottom: 1rem;
+}
+
+.col-image {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.col-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Team Section - Used on: about.html (Meet Our Team with team member cards) */
+.team-section {
+    padding: 4rem 0;
+}
+
+.team-section h2 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.team-leader {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.team-card-featured {
+    max-width: 358px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1121px;
+    margin: 0 auto;
+}
+
+.team-card,
+.team-member {
+    border: 1px solid transparent;
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: var(--card);
+    transition: all var(--transition-speed) ease;
+}
+
+.team-card:hover,
+.team-member:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(185, 28, 28, 0.2);
+    border-color: var(--primary);
+}
+
+.team-image {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+}
+
+.team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-card h3 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.56;
+    margin-bottom: 0.5rem;
+}
+
+.team-role {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+}
+
+.team-position {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.625;
+    color: var(--muted-foreground);
+}
+
+/* Values Section - Used on: about.html (What We Believe - core values) */
+.values-section {
+    padding: 4rem 0;
+}
+
+.values-section h2 {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 896px;
+    margin: 0 auto;
+}
+
+.value-card {
+    text-align: center;
+}
+
+.value-card h3 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+}
+
+.value-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+}
+
+/* Artists Section - Used on: artists.html (artist gallery grid with artist cards) */
+.artists-section {
+    padding: 4rem 0;
+}
+
+.artists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(273px, 273px));
+    gap: 5rem 2.5rem;
+    justify-content: center;
+}
+
+.artist-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all var(--transition-speed) ease;
+    background-color: var(--card);
+    position: relative;
+}
+
+.artist-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(185, 28, 28, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.artist-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(185, 28, 28, 0.2);
+    border-color: var(--primary);
+}
+
+.artist-card:hover .btn-secondary {
+    background-color: #78350f;
+    transform: translateY(-2px);
+}
+
+.artist-card:hover::before {
+    opacity: 1;
+}
+
+.artist-image {
+    width: 100%;
+    height: 192px;
+    overflow: hidden;
+}
+
+.artist-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.artist-content {
+    padding: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.artist-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.artist-profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(185, 28, 28, 0.5);
+    flex-shrink: 0;
+}
+
+.artist-content h3 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.artist-content .badge {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.artist-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+    margin-bottom: 1rem;
+}
+
+.artist-content .btn {
+    width: 100%;
+    height: 49px;
+}
+
+/* Exhibition Header & Details - Used on: exhibitions.html, exhibition-central.html */
+.exhibition-header {
+    padding: 4rem 0 2rem;
+    text-align: center;
+}
+
+.exhibition-header .badge {
+    margin-bottom: 1.5rem;
+}
+
+.exhibition-header h1 {
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.exhibition-dates {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--muted-foreground);
+}
+
+/* Exhibition Details - Used on: exhibitions.html, exhibition-central.html (exhibition info) */
+.exhibition-details {
+    padding: 2rem 0 4rem;
+}
+
+.exhibition-details h2 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.exhibition-details h3 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.exhibition-details p {
+    font-size: 16px;
+    line-height: 1.625;
+    color: var(--muted-foreground);
+    margin-bottom: 1rem;
+}
+
+/* Events Grid - Used on: exhibitions.html, exhibition-central.html (gallery talks, workshops) */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.event-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    background-color: var(--card);
+    transition: all var(--transition-speed) ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(185, 28, 28, 0.15);
+    border-color: var(--primary);
+}
+
+.event-card h3 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.event-date {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+    margin-bottom: 1rem;
+}
+
+.event-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--foreground);
+}
+
+
+/* Upcoming Exhibitions - Used on: exhibitions.html, exhibition-central.html */
+.upcoming-exhibitions {
+    padding: 4rem 0;
+    background: linear-gradient(to bottom, var(--background) 0%, rgba(185, 28, 28, 0.03) 100%);
+}
+
+.upcoming-exhibitions h2 {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.11;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.upcoming-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.upcoming-card {
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    transition: all var(--transition-speed) ease;
+}
+
+.upcoming-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(185, 28, 28, 0.2);
+    border-color: var(--primary);
+}
+
+.upcoming-image {
+    position: relative;
+    width: 100%;
+    height: 192px;
+    overflow: hidden;
+}
+
+.upcoming-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: #fff;
+}
+
+.image-overlay .badge {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    margin-bottom: 0.5rem;
+}
+
+.image-overlay h3 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+}
+
+.image-overlay .dates {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.43;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.upcoming-content {
+    padding: 1.5rem;
+}
+
+.upcoming-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+    margin-bottom: 1rem;
+}
+
+.artist-info {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+}
+
+/* Contact Form Section - Used on: contact.html (contact form with fields) */
+.contact-form-section {
+    padding: 4rem 0;
+}
+
+.contact-form-section h2 {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact-form {
+    max-width: 672px;
+    margin: 0 auto;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+    background-color: var(--card);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    color: var(--foreground);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.875rem;
+    background-color: var(--input);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--foreground);
+    transition: all var(--transition-speed) ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--foreground);
+    opacity: 0.5;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+    border-color: var(--primary);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Contact Info Cards - Used on: contact.html (email/address information) */
+.contact-info {
+    padding: 4rem 0;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    max-width: 1086px;
+    margin: 0 auto;
+}
+
+.info-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    background-color: var(--card);
+    transition: all var(--transition-speed) ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(185, 28, 28, 0.15);
+    border-color: var(--primary);
+}
+
+.info-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.56;
+    margin-bottom: 1.5rem;
+}
+
+.info-card p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.43;
+    color: var(--muted-foreground);
+}
+
+/* Social Section - Used on: contact.html (social media follow buttons) */
+.social-section {
+    padding: 4rem 0;
+    background: linear-gradient(to bottom, var(--background) 0%, rgba(185, 28, 28, 0.03) 100%);
+    text-align: center;
+}
+
+.social-section h2 {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.social-section p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+    max-width: 672px;
+    margin: 0 auto 2rem;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Collection Info - Used on: collection.html (additional collection information) */
+.collection-info {
+    padding: 4rem 0;
+    background: linear-gradient(to bottom, var(--background) 0%, rgba(185, 28, 28, 0.03) 100%);
+    text-align: center;
+}
+
+.collection-info h2 {
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.collection-info p {
+    font-size: 16px;
+    line-height: 1.625;
+    color: var(--muted-foreground);
+    max-width: 900px;
+    margin: 0 auto 1rem;
+}
+
+/* Footer - Used on: ALL PAGES (footer with links and copyright) */
+.footer {
+    background-color: var(--sidebar-background);
+    border-top: 1.5px solid var(--border);
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    color: var(--sidebar-foreground);
+}
+
+.footer-col p,
+.footer-col ul li {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--sidebar-foreground);
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.footer-col a:hover {
+    color: var(--primary);
+    opacity: 1;
+    transform: translateX(5px);
+    display: inline-block;
+}
+
+.footer-bottom {
+    border-top: 1.5px solid var(--border);
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.43;
+    color: var(--sidebar-foreground);
+    opacity: 0.6;
+}
+
+
+/* RESPONSIVE MEDIA QUERIES */
+/* Applied to all sections - Tablet adjustments (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .nav-menu {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        font-size: 16px;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+
+    .page-header h1 {
+        font-size: 40px;
+    }
+
+    .two-col-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .featured-artist {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .upcoming-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile responsive - Tablets and small devices (max-width: 768px) */
+/* Adjusts layout, hides desktop elements, shows mobile menu */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .nav-container {
+        padding: 0 1rem;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: flex !important;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--background);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        height: 100vh;
+        overflow-y: auto;
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .nav-menu li {
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-link {
+        padding: 1.25rem 1.5rem;
+        text-align: left;
+        display: block;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .nav-link.active {
+        background-color: var(--primary);
+        color: var(--primary-foreground);
+        border-radius: 0;
+    }
+
+    .mobile-menu-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem 1.5rem;
+        padding-right: 4.5rem;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        background-color: var(--background);
+        z-index: 10;
+    }
+
+    .mobile-menu-header .logo {
+        font-size: 24px;
+    }
+
+    .mobile-menu-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .mobile-menu-actions .dark-mode-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .mobile-close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-close svg {
+        width: 24px;
+        height: 24px;
+        stroke: var(--foreground);
+    }
+
+    .hero {
+        padding: 80px 1rem;
+        min-height: 400px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-outline {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .page-header h1 {
+        font-size: 32px;
+    }
+
+    .page-header .subtitle {
+        font-size: 18px;
+    }
+
+    .featured-section h2,
+    .recent-artworks h2,
+    .upcoming-exhibitions h2 {
+        font-size: 28px;
+    }
+
+    .featured-artist-profile {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .featured-artist-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .featured-artist-info h3 {
+        font-size: 26px;
+    }
+
+    .featured-artist-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .featured-artwork-box {
+        padding: 1.5rem;
+    }
+
+    .featured-artist-content .artist-description {
+        font-size: 15px;
+    }
+
+    .featured-artist-content .artist-quote {
+        font-size: 14px;
+    }
+
+    .artist-info-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .artist-info-card {
+        padding: 1.5rem;
+    }
+
+    .artwork-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .artwork-detail-card {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .artwork-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .artwork-modal-header,
+    .artwork-modal-body {
+        padding: 1.5rem;
+    }
+    
+    .go-back-button {
+        margin: 0 1.5rem 1.5rem;
+    }
+
+    .artists-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .col-content h2 {
+        font-size: 24px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-leader {
+        margin-bottom: 1.5rem;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tablet Specific - Optimized layout for tablets (769px - 1024px) */
+/* 2-column grid for team members */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small Mobile Devices - Extra small screens (max-width: 480px) */
+/* Optimized for mobile phones with minimal layout */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .page-header h1 {
+        font-size: 28px;
+    }
+
+    .featured-section h2,
+    .recent-artworks h2 {
+        font-size: 24px;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    /* Toast notifications */
+    .toast-container {
+        top: 1rem;
+        right: 1rem;
+        left: 1rem;
+    }
+
+    .toast {
+        min-width: auto;
+        width: 100%;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions .btn {
+        width: 100%;
+    }
+}

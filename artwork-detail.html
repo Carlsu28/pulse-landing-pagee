@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artwork details from The Pulse Collective.">
+    <title>Artwork Detail - The Pulse Collective</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.55 0 1-.45 1-1 0-.26-.1-.5-.26-.7-.15-.2-.24-.45-.24-.7 0-.55.45-1 1-1h1.18c3.05 0 5.52-2.47 5.52-5.52C20.2 5.48 16.65 2 12 2zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 8 6.5 8 8 8.67 8 9.5 7.33 11 6.5 11zm3-4C8.67 7 8 6.33 8 5.5S8.67 4 9.5 4s1.5.67 1.5 1.5S10.33 7 9.5 7zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 4 14.5 4s1.5.67 1.5 1.5S15.33 7 14.5 7zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 8 17.5 8s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                    </svg>
+                </span>
+                <span class="logo-text">TPC</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <div class="mobile-menu-header mobile-only">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo.svg" alt="The Pulse Collective Logo" class="logo-img">
+                    </a>
+                    <div class="mobile-menu-actions">
+                        <button class="dark-mode-toggle" aria-label="Toggle dark mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="exhibitions.html" class="nav-link">Exhibition</a></li>
+                <li><a href="artists.html" class="nav-link">Artist</a></li>
+                <li><a href="collection.html" class="nav-link active">Collection</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+            </ul>
+            
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="dark-mode-toggle desktop-only" aria-label="Toggle dark mode">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="artwork-detail-page container">
+        <div class="artwork-modal-header">
+            <h1 class="artwork-viewer-title">Work of an Art</h1>
+        </div>
+        <div class="artwork-modal-body">
+            <div class="artwork-detail-card">
+                <div class="artwork-detail-image">
+                    <img id="artworkImage" src="" alt="">
+                </div>
+                <div class="artwork-detail-info">
+                    <div class="artwork-detail-year" id="artworkYear"></div>
+                    <div class="artwork-detail-content">
+                        <div class="artwork-detail-title-author">
+                            <h2 class="artwork-detail-title" id="artworkTitle"></h2>
+                            <p class="artwork-detail-author" id="artworkAuthor"></p>
+                        </div>
+                        <div class="artwork-detail-description">
+                            <div class="artwork-detail-item">
+                                <span class="detail-label">Medium:</span>
+                                <span class="detail-value" id="artworkMedium"></span>
+                            </div>
+                            <div class="artwork-detail-item">
+                                <span class="detail-label">Dimensions:</span>
+                                <span class="detail-value" id="artworkDimensions"></span>
+                            </div>
+                            <div class="artwork-detail-item">
+                                <span class="detail-label">Category:</span>
+                                <span class="detail-value" id="artworkCategory"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="collection.html" class="go-back-button">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Go Back to Collection</span>
+        </a>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>The Pulse Collective</h4>
+                    <p>Showcasing contemporary art that challenges, inspires, and transforms.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="exhibitions.html">Current Exhibition</a></li>
+                        <li><a href="collection.html">Browse Collection</a></li>
+                        <li><a href="artists.html">Featured Artists</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Visit</h4>
+                    <ul>
+                        <li><a href="#">Visit us on social media</a></li>
+                        <li><a href="#">ThePulseCollective - FB</a></li>
+                        <li><a href="#">@ThePulseCollective - IG</a></li>
+                        <li><a href="#">@ThePulseCollective Tiktok</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+6309120985679">+63 09120985679</a></li>
+                        <li><a href="mailto:info@thepulsecollective.com">info@thepulsecollective.com</a></li>
+                        <li>Don't hesitate to contact us.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 The Pulse Collective. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const artworkData = {};
+            for (const [key, value] of urlParams.entries()) {
+                artworkData[key] = value;
+            }
+
+            if (artworkData.title) {
+                document.title = artworkData.title + ' - The Pulse Collective';
+                
+                const imageEl = document.getElementById('artworkImage');
+                const titleEl = document.getElementById('artworkTitle');
+                const authorEl = document.getElementById('artworkAuthor');
+                const yearEl = document.getElementById('artworkYear');
+                const mediumEl = document.getElementById('artworkMedium');
+                const dimensionsEl = document.getElementById('artworkDimensions');
+                const categoryEl = document.getElementById('artworkCategory');
+
+                if (imageEl) imageEl.src = artworkData.image;
+                if (imageEl) imageEl.alt = `${artworkData.title} by ${artworkData.author}`;
+                if (titleEl) titleEl.textContent = artworkData.title;
+                if (authorEl) authorEl.textContent = `by ${artworkData.author}`;
+                if (yearEl) yearEl.textContent = artworkData.year;
+                if (mediumEl) mediumEl.textContent = artworkData.medium;
+                if (dimensionsEl) dimensionsEl.textContent = artworkData.dimensions;
+                if (categoryEl) categoryEl.textContent = artworkData.category;
+            } else {
+                // Handle case where no artwork data is provided
+                const detailPage = document.querySelector('.artwork-detail-page');
+                if(detailPage) {
+                    detailPage.innerHTML = '<h1>Artwork not found</h1><p>Please return to the collection and select an artwork.</p><a href="collection.html" class="btn">Back to Collection</a>';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

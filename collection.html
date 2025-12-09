@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our curated collection of contemporary artworks from talented Filipino artists. Explore paintings, sculptures, and mixed media pieces.">
+    <meta name="keywords" content="art collection, contemporary art, paintings, sculptures, Filipino art">
+    <meta name="author" content="The Pulse Collective">
+    <title>Art Collection - The Pulse Collective</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.55 0 1-.45 1-1 0-.26-.1-.5-.26-.7-.15-.2-.24-.45-.24-.7 0-.55.45-1 1-1h1.18c3.05 0 5.52-2.47 5.52-5.52C20.2 5.48 16.65 2 12 2zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 8 6.5 8 8 8.67 8 9.5 7.33 11 6.5 11zm3-4C8.67 7 8 6.33 8 5.5S8.67 4 9.5 4s1.5.67 1.5 1.5S10.33 7 9.5 7zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 4 14.5 4s1.5.67 1.5 1.5S15.33 7 14.5 7zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 8 17.5 8s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                    </svg>
+                </span>
+                <span class="logo-text">TPC</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <div class="mobile-menu-header mobile-only">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo.svg" alt="The Pulse Collective Logo" class="logo-img">
+                    </a>
+                    <div class="mobile-menu-actions">
+                        <button class="dark-mode-toggle" aria-label="Toggle dark mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="exhibitions.html" class="nav-link">Exhibition</a></li>
+                <li><a href="artists.html" class="nav-link">Artist</a></li>
+                <li><a href="collection.html" class="nav-link active">Collection</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+            </ul>
+            
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="dark-mode-toggle desktop-only" aria-label="Toggle dark mode">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Collection Header -->
+    <section class="collection-header">
+        <div class="container">
+            <h1 class="collection-title">Pulse Collection</h1>
+            <p class="collection-description">Explore our carefully curated collection of contemporary artworks from established and emerging artists.</p>
+        </div>
+    </section>
+
+    <!-- Repository Stats -->
+    <section class="repository-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>150+</h3>
+                    <p>Total Artworks</p>
+                </div>
+                <div class="stat-card">
+                    <h3>45</h3>
+                    <p>Artists</p>
+                </div>
+                <div class="stat-card">
+                    <h3>12</h3>
+                    <p>Countries</p>
+                </div>
+                <div class="stat-card">
+                    <h3>25</h3>
+                    <p>New This Year</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Gallery -->
+    <section class="collection-gallery">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Artwork 1 -->
+                <div class="artwork-card" data-artwork='{"title":"Campbell&#39;s Soup Cans","author":"Andy Warhol","year":"1962","medium":"Synthetic polymer paint on canvas","dimensions":"51 x 41 cm each","category":"Pop Art","image":"collections/1.png"}'>
+                    <div class="artwork-image">
+                        <img src="collections/1.png" alt="Campbell's Soup Cans by Andy Warhol">
+                    </div>
+                    <div class="artwork-content">
+                        <div class="artwork-title-author">
+                            <h3 class="artwork-title">Campbell's Soup Cans</h3>
+                            <p class="artwork-author">by Andy Warhol</p>
+                        </div>
+                        <div class="artwork-year">1962</div>
+                        <br>
+                        <button class="view-button" >View</button>
+                    </div>
+                </div>
+
+                <!-- Artwork 2 -->
+                <div class="artwork-card" data-artwork='{"title":"Maman","author":"Louise Bourgeois","year":"1999","medium":"Bronze, stainless steel, and marble","dimensions":"927 x 891 x 1024 cm","category":"Sculpture","image":"collections/2.png"}'>
+                    <div class="artwork-image">
+                        <img src="collections/2.png" alt="Maman by Louise Bourgeois">
+                    </div>
+                    <div class="artwork-content">
+                        <div class="artwork-title-author">
+                            <h3 class="artwork-title">Maman</h3>
+                            <p class="artwork-author">by Louise Bourgeois</p>
+                        </div>
+                        <div class="artwork-year">1999</div>
+                       <br>
+                        <button class="view-button" >View</button>
+                    </div>
+                </div>
+
+                <!-- Artwork 3 -->
+                <div class="artwork-card" data-artwork='{"title":"Autumn Rhythm","author":"Jackson Pollock","year":"1950","medium":"Enamel on canvas","dimensions":"266.7 x 525.8 cm","category":"Abstract Expressionism","image":"collections/3.png"}'>
+                    <div class="artwork-image">
+                        <img src="collections/3.png" alt="Autumn Rhythm by Jackson Pollock">
+                    </div>
+                    <div class="artwork-content">
+                        <div class="artwork-title-author">
+                            <h3 class="artwork-title">Autumn Rhythm</h3>
+                            <p class="artwork-author">by Jackson Pollock</p>
+                        </div>
+                        <div class="artwork-year">1950</div>
+                      <br>
+                        <button class="view-button" >View</button>
+                    </div>
+                </div>
+
+                <!-- Artwork 4 -->
+                <div class="artwork-card" data-artwork='{"title":"I Still Face You","author":"Njideka Akunyili Crosby","year":"2015","medium":"Acrylic, transfers, colored pencil, and collage on paper","dimensions":"213.4 x 274.3 cm","category":"Contemporary Art","image":"collections/4.png"}'>
+                    <div class="artwork-image">
+                        <img src="collections/4.png" alt="I Still Face You by Njideka Akunyili Crosby">
+                    </div>
+                    <div class="artwork-content">
+                        <div class="artwork-title-author">
+                            <h3 class="artwork-title">I Still Face You</h3>
+                            <p class="artwork-author">by Njideka Akunyili Crosby</p>
+                        </div>
+                        <div class="artwork-year">2015</div>
+                      <br>
+                        <button class="view-button" >View</button>
+                    </div>
+                </div>
+
+                <!-- Artwork 5 -->
+                <div class="artwork-card" data-artwork='{"title":"The Girl Who Had Everything","author":"Cecily Brown","year":"1998","medium":"Oil on canvas","dimensions":"228.6 x 203.2 cm","category":"Abstract Painting","image":"collections/5.png"}'>
+                    <div class="artwork-image">
+                        <img src="collections/5.png" alt="The Girl Who Had Everything by Cecily Brown">
+                    </div>
+                    <div class="artwork-content">
+                        <div class="artwork-title-author">
+                            <h3 class="artwork-title">The Girl Who Had Everything</h3>
+                            <p class="artwork-author">by Cecily Brown</p>
+                        </div>
+                        <div class="artwork-year">1998</div>
+                      <br>
+                        <button class="view-button" >View</button>
+                    </div>
+                </div>
+
+                <!-- Artwork 6 -->
+                <div class="artwork-card" data-artwork='{"title":"Untitled","author":"Keith Haring","year":"1982","medium":"Chalk on paper","dimensions":"Various dimensions","category":"Street Art","image":"collections/6.png"}'>
+                    <div class="artwork-image">
+                        <img src="collections/6.png" alt="Untitled by Keith Haring">
+                    </div>
+                    <div class="artwork-content">
+                        <div class="artwork-title-author">
+                            <h3 class="artwork-title">Untitled</h3>
+                            <p class="artwork-author">by Keith Haring</p>
+                        </div>
+                        <div class="artwork-year">1982</div>
+                      <br>
+                        <button class="view-button" >View</button>
+                    </div>
+                </div>
+
+                <!-- Artwork 7 -->
+                <div class="artwork-card" data-artwork='{"title":"Propped","author":"Jenny Saville","year":"1992","medium":"Oil on canvas","dimensions":"213.4 x 182.9 cm","category":"Contemporary Painting","image":"images/collection/artwork-3-portrait.png"}'>
+                    <div class="artwork-image">
+                        <img src="images/collection/artwork-3-portrait.png" alt="Propped by Jenny Saville">
+                    </div>
+                    <div class="artwork-content">
+                        <div class="artwork-title-author">
+                            <h3 class="artwork-title">Propped</h3>
+                            <p class="artwork-author">by Jenny Saville</p>
+                        </div>
+                        <div class="artwork-year">1992</div>
+                      <br>
+                        <button class="view-button" >View</button>
+                    </div>
+                </div>
+
+                <!-- Artwork 8 -->
+                <div class="artwork-card" data-artwork='{"title":"Look Mickey","author":"Roy Lichtenstein","year":"1961","medium":"Oil on canvas","dimensions":"121.9 x 175.3 cm","category":"Pop Art","image":"images/collection/artwork-2-look-mickey.png"}'>
+                    <div class="artwork-image">
+                        <img src="images/collection/artwork-2-look-mickey.png" alt="Look Mickey by Roy Lichtenstein">
+                    </div>
+                    <div class="artwork-content">
+                        <div class="artwork-title-author">
+                            <h3 class="artwork-title">Look Mickey</h3>
+                            <p class="artwork-author">by Roy Lichtenstein</p>
+                        </div>
+                        <div class="artwork-year">1961</div>
+                        <br>
+                        <button class="view-button" >View</button>
+                    </div>
+                </div>
+
+                <!-- Artwork 9 -->
+                <div class="artwork-card" data-artwork='{"title":"Portrait of an Artist (Pool with Two Figures)","author":"David Hockney","year":"1972","medium":"Acrylic on canvas","dimensions":"213.4 x 304.8 cm","category":"Contemporary Art","image":"collections/7.png"}'>
+                    <div class="artwork-image">
+                        <img src="collections/7.png" alt="Portrait of an Artist by David Hockney">
+                    </div>
+                    <div class="artwork-content">
+                        <div class="artwork-title-author">
+                            <h3 class="artwork-title">Portrait of an Artist </h3>
+                            <p class="artwork-author">by David Hockney</p>
+                        </div>
+                        <div class="artwork-year">1972</div>
+                       <br>
+                        <button class="view-button" >View</button>
+                    </div>
+                </div>
+
+                <!-- Artwork 10 -->
+                <div class="artwork-card" data-artwork='{"title":"Door 84","author":"Dorothea Tanning","year":"1984","medium":"Oil on canvas","dimensions":"152.4 x 121.9 cm","category":"Surrealism","image":"collections/8.png"}'>
+                    <div class="artwork-image">
+                        <img src="collections/8.png" alt="Door 84 by Dorothea Tanning">
+                    </div>
+                    <div class="artwork-content">
+                        <div class="artwork-title-author">
+                            <h3 class="artwork-title">Door 84</h3>
+                            <p class="artwork-author">by Dorothea Tanning</p>
+                        </div>
+                        <div class="artwork-year">1984</div>
+                 <br>
+                        <button class="view-button" >View</button>
+                    </div>
+                </div>
+
+                <!-- Artwork 11 -->
+                <div class="artwork-card" data-artwork='{"title":"Self Portrait","author":"Frida Kahlo","year":"1948","medium":"Oil on masonite","dimensions":"50 x 39.5 cm","category":"Self Portrait","image":"images/collection/artwork-1-propped.png"}'>
+                    <div class="artwork-image">
+                        <img src="images/collection/artwork-1-propped.png" alt="Self Portrait by Frida Kahlo">
+                    </div>
+                    <div class="artwork-content">
+                        <div class="artwork-title-author">
+                            <h3 class="artwork-title">Self Portrait</h3>
+                            <p class="artwork-author">by Frida Kahlo</p>
+                        </div>
+                        <div class="artwork-year">1948</div>
+                     <br>
+                        <button class="view-button" >View</button>
+                    </div>
+                </div>
+
+                <!-- Artwork 12 -->
+                <div class="artwork-card" data-artwork='{"title":"Reflection","author":"Lucian Freud","year":"1985","medium":"Oil on canvas","dimensions":"56.2 x 51.2 cm","category":"Portrait","image":"collections/9.png"}'>
+                    <div class="artwork-image">
+                        <img src="collections/9.png" alt="Reflection by Lucian Freud">
+                    </div>
+                    <div class="artwork-content">
+                        <div class="artwork-title-author">
+                            <h3 class="artwork-title">Reflection</h3>
+                            <p class="artwork-author">by Lucian Freud</p>
+                        </div>
+                        <div class="artwork-year">1985</div>
+                 <br>
+                        <button class="view-button" >View</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pagination -->
+    <section class="pagination-section">
+        <div class="container">
+            <div class="pagination-buttons">
+                <button class="pagination-btn prev-btn" id="prevBtn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Previous</span>
+                </button>
+                <button class="pagination-btn next-btn" id="nextBtn">
+                    <span>Next</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>The Pulse Collective</h4>
+                    <p>Showcasing contemporary art that challenges, inspires, and transforms.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="exhibitions.html">Current Exhibition</a></li>
+                        <li><a href="collection.html">Browse Collection</a></li>
+                        <li><a href="artists.html">Featured Artists</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Visit</h4>
+                    <ul>
+                        <li><a href="#">Visit us on social media</a></li>
+                        <li><a href="#">ThePulseCollective - FB</a></li>
+                        <li><a href="#">@ThePulseCollective - IG</a></li>
+                        <li><a href="#">@ThePulseCollective Tiktok</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+6309120985679">+63 09120985679</a></li>
+                        <li><a href="mailto:info@thepulsecollective.com">info@thepulsecollective.com</a></li>
+                        <li>Don't hesitate to contact us.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 The Pulse Collective. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
