@@ -1101,6 +1101,12 @@ ul {
     gap: 2rem;
 }
 
+.artwork-grid-2{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
 .artwork-card,
 .gallery-item {
     border: 1px solid var(--border);
