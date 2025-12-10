@@ -1088,15 +1088,9 @@ ul {
 
 .artwork-grid,
 .gallery-grid {
-        /* Fixed grid layout: 3 columns x 2 rows
-             - Ensures the gallery displays as 3 columns and 2 rows
-                 (6 tiles) on desktop/tablet widths.
-             - Responsive breakpoints below will override this
-                 for smaller screens (mobile uses a single column).
-        */
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-        grid-template-rows: repeat(2, auto);   /* 2 rows */
+        grid-template-columns: repeat(3, 1fr); 
+        grid-template-rows: repeat(2, auto);   
         gap: 2rem;
 }
 
