@@ -2492,6 +2492,7 @@ body.dark-mode .btn-view-collection:hover {
     }
 
     .artwork-grid,
+    .artwork-grid-2,
     .gallery-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
