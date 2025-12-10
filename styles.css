@@ -2297,6 +2297,11 @@ body.dark-mode .btn-view-collection:hover {
     .upcoming-grid {
         grid-template-columns: 1fr;
     }
+
+    .artwwork-grid,
+    .artwork-grid-2, {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
 }
 
 /* Mobile responsive - Tablets and small devices (max-width: 768px) */
