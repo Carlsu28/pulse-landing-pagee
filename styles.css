@@ -2286,6 +2286,11 @@ body.dark-mode .btn-view-collection:hover {
         gap: 2rem;
     }
 
+    .artists-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 4rem 2rem;
+    }
+
     .featured-artist {
         grid-template-columns: 1fr;
     }
