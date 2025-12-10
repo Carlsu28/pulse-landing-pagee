@@ -2299,8 +2299,10 @@ body.dark-mode .btn-view-collection:hover {
     }
 
     .artwwork-grid,
-    .artwork-grid-2, {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    .artwork-grid-2,
+    .artists-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 
